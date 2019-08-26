@@ -12,3 +12,5 @@ dependencies:
   - ipython
   - matplotlib
   - scikit-learn
+  - networkx
+  - pydot
