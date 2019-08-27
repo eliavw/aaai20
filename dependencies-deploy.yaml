@@ -14,3 +14,6 @@ dependencies:
   - scikit-learn
   - networkx
   - pydot
+  - pip:
+    - prefect
+    - liac-arff
