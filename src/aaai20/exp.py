@@ -27,7 +27,6 @@ def collect_results(dataset, q_codes, results, algorithm='weka'):
     miss_encoding = encode_attribute(2, [0], [1])
     n_miss = np.sum((q_codes == miss_encoding), axis=1)
     
-    
     df['q_idx'] = range(n_qry)
     df['dataset'] = dataset
     df['F1'] = results
