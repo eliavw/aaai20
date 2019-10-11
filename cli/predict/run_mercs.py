@@ -61,7 +61,9 @@ def main(config_fname, q_idx):
     predict_config = {**DEFAULT_PREDICT_CONFIG, **predict_config}
 
     # Load model
+    print("Start loading")
     clf = load_mercs(dataset, keyword=model_keyword)
+    print("Done loading")
 
     # Predictions
     q_idx_return, q_codes_return, results, timings = predict_mercs(
@@ -157,20 +159,15 @@ def predict_mercs(dataset, classifier, q_idx=None, **predict_config):
             # Predictions and evaluation
             y_pred = classifier.predict(test, q_code=q_code, **predict_config)
 
+            q_inf_time = classifier.model_data["inf_time"]
+
             msg = """
             q_idx:  {}
-            prd_time:   {}
-            dsk_time:   {}
-            ratio = {}
-            """.format(
-                query_idx,
-                classifier.model_data["prd_time"],
-                classifier.model_data["dsk_time"],
-                classifier.model_data["prd_time"] / classifier.model_data["dsk_time"],
+            total_time = {}
+            ratios predict-dask-compute     {}
+            """.format(query_idx, q_inf_time,classifier.model_data["ratios"]
             )
             print(msg)
-
-            q_inf_time = classifier.model_data["inf_time"]
 
             q_f1_micro, q_f1_macro = (
                 f1_score(y_true, y_pred, average="micro"),
