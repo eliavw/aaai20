@@ -1,0 +1,8 @@
+{
+    "dataset": "bnetflix",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 6,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

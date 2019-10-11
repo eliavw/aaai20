@@ -1,0 +1,11 @@
+{
+    "dataset": "nltcs",
+    "model_keyword": "default",
+    "exp_keyword": "demopredictpxs",
+    "exp_idx": 2,
+    "predict_config": {
+        "inferce_algorithm": "EPIS_sampling",
+        "inference_algorithm": "lauritzen"
+    },
+    "script": "run_pxs"
+}

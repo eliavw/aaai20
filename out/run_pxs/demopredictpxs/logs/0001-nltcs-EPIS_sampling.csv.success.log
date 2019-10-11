@@ -1,0 +1,46 @@
+[SETTINGS] {
+  "date": "2019/10/09 21:33:00",
+  "date_iso": "2019-10-09T21:33:00.429784",
+  "params": null,
+  "system": {
+    "nodename": "frost",
+    "machine": "x86_64",
+    "platform": "Linux-4.4.0-165-generic-x86_64-with-debian-stretch-sid",
+    "processor": "x86_64",
+    "version": "#193-Ubuntu SMP Tue Sep 17 17:42:52 UTC 2019",
+    "system": "Linux",
+    "cpu_count": 8,
+    "cpu_times": {
+      "user": 10862.38,
+      "system": 4745.1,
+      "idle": 319304.39,
+      "nice": 26.04
+    },
+    "cpu_percent": 30.8,
+    "virtual_memory": {
+      "total": 33618337792,
+      "available": 26328334336,
+      "percent": 21.7,
+      "used": 5908398080,
+      "free": 20077481984
+    }
+  },
+  "process": {
+    "username": "elia",
+    "cwd": "/cw/dtailocal/repos/aaai20/cli",
+    "create_time": 1570649579.78,
+    "cpu_times": {
+      "user": 0.42,
+      "system": 0.02
+    }
+  },
+  "logfile": "/cw/dtailocal/repos/aaai20/out/run_pxs/demopredictpxs/logs/0001-nltcs-EPIS_sampling.csv",
+  "max_time": 3600.0,
+  "command": "python /cw/dtailocal/repos/aaai20/cli/predict/run_pxs.py --config_fname /cw/dtailocal/repos/aaai20/out/run_pxs/demopredictpxs/config/0001-nltcs-EPIS_sampling.json --q_idx 3"
+}
+[INFO] cmd:python /cw/dtailocal/repos/aaai20/cli/predict/run_pxs.py --config_fname /cw/dtailocal/repos/aaai20/out/run_pxs/demopredictpxs/config/0001-nltcs-EPIS_sampling.json --q_idx 3; cwd:None
+[INFO] Start: Run process
+[INFO] Write log to /cw/dtailocal/repos/aaai20/out/run_pxs/demopredictpxs/logs/0001-nltcs-EPIS_sampling.csv.running.log
+[INFO] Process ended (returncode 0)
+[INFO] Finished: Run process 3.405 seconds
+[WARNING] Exit:finished; Returncode:0; Time:3.40496

@@ -1,0 +1,48 @@
+[SETTINGS] {
+  "date": "2019/10/08 16:40:56",
+  "date_iso": "2019-10-08T16:40:56.807305",
+  "params": null,
+  "system": {
+    "nodename": "frost",
+    "machine": "x86_64",
+    "platform": "Linux-4.4.0-165-generic-x86_64-with-debian-stretch-sid",
+    "processor": "x86_64",
+    "version": "#193-Ubuntu SMP Tue Sep 17 17:42:52 UTC 2019",
+    "system": "Linux",
+    "cpu_count": 8,
+    "cpu_times": {
+      "user": 44636.68,
+      "system": 11578.56,
+      "idle": 823736.44,
+      "nice": 71.4
+    },
+    "cpu_percent": 16.4,
+    "virtual_memory": {
+      "total": 33618337792,
+      "available": 25070673920,
+      "percent": 25.4,
+      "used": 7036444672,
+      "free": 17557753856
+    }
+  },
+  "process": {
+    "username": "elia",
+    "cwd": "/cw/dtailocal/repos/aaai20/note/experiments",
+    "create_time": 1570544056.85,
+    "cpu_times": {
+      "user": 2.11,
+      "system": 0.8
+    }
+  },
+  "logfile": "/cw/dtailocal/repos/aaai20/note/experiments/140133259525368_PxS_log_predict_Q0005",
+  "max_time": 7200.0,
+  "command": "./backend/predict -c /cw/dtailocal/repos/aaai20/note/experiments/140133259525368_config_predict.json_Q0005"
+}
+[INFO] cmd:./backend/predict -c /cw/dtailocal/repos/aaai20/note/experiments/140133259525368_config_predict.json_Q0005; cwd:/cw/dtailocal/repos/PxS/src/pxs
+[INFO] Start: Run process
+[INFO] Write log to /cw/dtailocal/repos/aaai20/note/experiments/140133259525368_PxS_log_predict_Q0005.running.log
+Configfile: '/cw/dtailocal/repos/aaai20/note/experiments/140133259525368_config_predict.json_Q0005'
+BN Algo: 8
+[INFO] Finished: Run process 3.022 seconds
+[INFO] Kill process (keyboard)
+[WARNING] Exit:keyboard; Returncode:999; Time:0

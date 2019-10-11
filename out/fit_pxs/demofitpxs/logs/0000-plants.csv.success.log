@@ -1,0 +1,46 @@
+[SETTINGS] {
+  "date": "2019/10/09 21:07:55",
+  "date_iso": "2019-10-09T21:07:55.693996",
+  "params": null,
+  "system": {
+    "nodename": "frost",
+    "machine": "x86_64",
+    "platform": "Linux-4.4.0-165-generic-x86_64-with-debian-stretch-sid",
+    "processor": "x86_64",
+    "version": "#193-Ubuntu SMP Tue Sep 17 17:42:52 UTC 2019",
+    "system": "Linux",
+    "cpu_count": 8,
+    "cpu_times": {
+      "user": 10402.09,
+      "system": 4605.67,
+      "idle": 307946.39,
+      "nice": 25.96
+    },
+    "cpu_percent": 22.2,
+    "virtual_memory": {
+      "total": 33618337792,
+      "available": 27123400704,
+      "percent": 19.3,
+      "used": 5104914432,
+      "free": 20883046400
+    }
+  },
+  "process": {
+    "username": "elia",
+    "cwd": "/cw/dtailocal/repos/aaai20/cli",
+    "create_time": 1570648075.07,
+    "cpu_times": {
+      "user": 0.39,
+      "system": 0.03
+    }
+  },
+  "logfile": "/cw/dtailocal/repos/aaai20/out/fit_pxs/demofitpxs/logs/0000-plants.csv",
+  "max_time": 3600.0,
+  "command": "python /cw/dtailocal/repos/aaai20/cli/fit/fit_pxs.py --config_fname /cw/dtailocal/repos/aaai20/out/fit_pxs/demofitpxs/config/0000-plants.json"
+}
+[INFO] cmd:python /cw/dtailocal/repos/aaai20/cli/fit/fit_pxs.py --config_fname /cw/dtailocal/repos/aaai20/out/fit_pxs/demofitpxs/config/0000-plants.json; cwd:None
+[INFO] Start: Run process
+[INFO] Write log to /cw/dtailocal/repos/aaai20/out/fit_pxs/demofitpxs/logs/0000-plants.csv.running.log
+[INFO] Process ended (returncode 0)
+[INFO] Finished: Run process 33.448 seconds
+[WARNING] Exit:finished; Returncode:0; Time:33.44772

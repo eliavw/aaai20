@@ -1,0 +1,8 @@
+{
+    "dataset": "c20ng",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 0,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

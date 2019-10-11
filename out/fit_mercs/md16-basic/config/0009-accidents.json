@@ -1,0 +1,8 @@
+{
+    "dataset": "accidents",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 9,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

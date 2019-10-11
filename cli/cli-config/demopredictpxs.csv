@@ -1,0 +1,3 @@
+script_fname,config_fname,log_fname,timeout,q_idx
+/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/cli/predict/run_pxs.py,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/run_pxs/demopredictpxs/config/0000-nltcs-EPIS_sampling.json,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/run_pxs/demopredictpxs/logs/0000-nltcs-EPIS_sampling.csv,3600,3
+/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/cli/predict/run_pxs.py,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/run_pxs/demopredictpxs/config/0001-nltcs-lauritzen.json,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/run_pxs/demopredictpxs/logs/0001-nltcs-lauritzen.csv,3600,3

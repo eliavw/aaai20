@@ -1,0 +1,8 @@
+{
+    "dataset": "pumsb_star",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 20,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

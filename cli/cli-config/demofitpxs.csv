@@ -1,0 +1,3 @@
+script_fname,config_fname,log_fname,timeout
+/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/cli/fit/fit_pxs.py,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/fit_pxs/demofitpxs/config/0000-plants.json,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/fit_pxs/demofitpxs/logs/0000-plants.csv,3600
+/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/cli/fit/fit_pxs.py,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/fit_pxs/demofitpxs/config/0001-nltcs.json,/cw/dtaijupiter/NoCsBack/dtai/elia/aaai20/out/fit_pxs/demofitpxs/logs/0001-nltcs.csv,3600

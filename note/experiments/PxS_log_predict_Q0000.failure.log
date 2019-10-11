@@ -1,0 +1,49 @@
+[SETTINGS] {
+  "date": "2019/10/07 19:02:51",
+  "date_iso": "2019-10-07T19:02:51.871018",
+  "params": null,
+  "system": {
+    "nodename": "frost",
+    "machine": "x86_64",
+    "platform": "Linux-4.4.0-165-generic-x86_64-with-debian-stretch-sid",
+    "processor": "x86_64",
+    "version": "#193-Ubuntu SMP Tue Sep 17 17:42:52 UTC 2019",
+    "system": "Linux",
+    "cpu_count": 8,
+    "cpu_times": {
+      "user": 19340.5,
+      "system": 5860.6,
+      "idle": 236083.8,
+      "nice": 23.68
+    },
+    "cpu_percent": 21.1,
+    "virtual_memory": {
+      "total": 33618337792,
+      "available": 24982224896,
+      "percent": 25.7,
+      "used": 7205986304,
+      "free": 17335005184
+    }
+  },
+  "process": {
+    "username": "elia",
+    "cwd": "/cw/dtailocal/repos/aaai20/note/experiments",
+    "create_time": 1570467767.14,
+    "cpu_times": {
+      "user": 1.32,
+      "system": 0.17
+    }
+  },
+  "logfile": "/cw/dtailocal/repos/aaai20/note/experiments/PxS_log_predict_Q0000",
+  "max_time": 600.0,
+  "command": "./backend/predict -c /cw/dtailocal/repos/aaai20/note/experiments/config.json"
+}
+[INFO] cmd:./backend/predict -c /cw/dtailocal/repos/aaai20/note/experiments/config.json; cwd:/cw/dtailocal/repos/PxS/src/pxs
+[INFO] Start: Run process
+[INFO] Write log to /cw/dtailocal/repos/aaai20/note/experiments/PxS_log_predict_Q0000.running.log
+Configfile: '/cw/dtailocal/repos/aaai20/note/experiments/config.json'
+[STDERR] terminate called after throwing an instance of 'nlohmann::detail::type_error'
+[STDERR]   what():  [json.exception.type_error.302] type must be number, but is null
+[INFO] Process ended (returncode -6)
+[INFO] Finished: Run process 0.201 seconds
+[WARNING] Exit:finished; Returncode:-6; Time:0.20125

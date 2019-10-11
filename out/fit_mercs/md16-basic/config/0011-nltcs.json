@@ -1,0 +1,8 @@
+{
+    "dataset": "nltcs",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 11,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

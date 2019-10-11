@@ -1,0 +1,3 @@
+script_fname,config_fname,log_fname,timeout,q_idx
+/cw/dtailocal/repos/aaai20/cli/predict/run_mercs.py,/cw/dtailocal/repos/aaai20/out/run_mercs/gnuparallel-test/config/0009-nltcs-mi.json,/cw/dtailocal/repos/aaai20/out/run_mercs/gnuparallel-test/logs/0009-nltcs-mi.csv,3600,3
+/cw/dtailocal/repos/aaai20/cli/predict/run_mercs.py,/cw/dtailocal/repos/aaai20/out/run_mercs/gnuparallel-test/config/0008-nltcs-mrai.json,/cw/dtailocal/repos/aaai20/out/run_mercs/gnuparallel-test/logs/0008-nltcs-mrai.csv,3600,3

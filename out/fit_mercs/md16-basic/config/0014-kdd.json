@@ -1,0 +1,8 @@
+{
+    "dataset": "kdd",
+    "model_keyword": "md16-basic",
+    "exp_keyword": "md16-basic",
+    "exp_idx": 14,
+    "fit_config": {},
+    "script": "fit_mercs"
+}

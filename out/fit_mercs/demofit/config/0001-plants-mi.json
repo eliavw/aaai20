@@ -1,0 +1,10 @@
+{
+    "dataset": "plants",
+    "model_keyword": "default",
+    "exp_keyword": "demofit",
+    "exp_idx": 1,
+    "predict_config": {
+        "prediction_algorithm": "mi"
+    },
+    "script": "fit_mercs"
+}
