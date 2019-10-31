@@ -1,8 +1,0 @@
-{
-    "dataset": "cr52",
-    "model_keyword": "md16-basic",
-    "exp_keyword": "md16-basic",
-    "exp_idx": 17,
-    "fit_config": {},
-    "script": "fit_mercs"
-}

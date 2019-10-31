@@ -1,8 +1,0 @@
-{
-    "dataset": "nltcs",
-    "model_keyword": "default",
-    "exp_keyword": "demofitpxs",
-    "exp_idx": 1,
-    "fit_config": {},
-    "script": "fit_pxs"
-}

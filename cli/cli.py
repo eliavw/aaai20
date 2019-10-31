@@ -14,7 +14,6 @@ import subprocess
 import sys
 from os.path import abspath, dirname, relpath
 
-import dill as pkl
 import pandas as pd
 from aaai20.io import build_filesystem
 

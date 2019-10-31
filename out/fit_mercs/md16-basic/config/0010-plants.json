@@ -1,8 +1,0 @@
-{
-    "dataset": "plants",
-    "model_keyword": "md16-basic",
-    "exp_keyword": "md16-basic",
-    "exp_idx": 10,
-    "fit_config": {},
-    "script": "fit_mercs"
-}

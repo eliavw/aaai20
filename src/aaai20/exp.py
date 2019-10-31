@@ -38,6 +38,8 @@ def collect_results(dataset, q_codes, results: Dict[str, List[float]], identifie
 
     if q_idx is not None:
         df['q_idx'] = q_idx
+    else:
+        df['q_idx'] = range(nb_qry)
 
     for k in results:
         df[k] = results[k]

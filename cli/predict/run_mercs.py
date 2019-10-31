@@ -8,6 +8,7 @@ from pathlib import Path
 import dill as pkl
 import numpy as np
 import pandas as pd
+from joblib import dump, load
 from sklearn.exceptions import UndefinedMetricWarning
 from sklearn.metrics import f1_score
 
@@ -24,7 +25,8 @@ from aaai20.io import (
 )
 from aaai20.utils import load_config
 from mercs.utils.encoding import code_to_query, encode_attribute, get_att, query_to_code
-from pxs.core.PxS import PxS
+from joblib import Parallel, delayed
+
 
 warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
 
@@ -39,12 +41,12 @@ DEFAULT_CONFIG = dict(
     exp_keyword="default",
     qry_idx=None,
     exp_idx=0,
+    n_jobs=1,
 )
 
 
 # Main function
 def main(config_fname, q_idx):
-
     # Load config + extract variables (in order of appearance)
     qry_idx = q_idx
 
@@ -56,6 +58,7 @@ def main(config_fname, q_idx):
     exp_idx = config.get("exp_idx")
     exp_keyword = config.get("exp_keyword")
     exp_fn_fields = config.get("exp_fn_fields", None)  # For filenaming conventions
+    n_jobs = config.get("n_jobs")
 
     predict_config = config.get("predict_config")
     predict_config = {**DEFAULT_PREDICT_CONFIG, **predict_config}
@@ -67,7 +70,7 @@ def main(config_fname, q_idx):
 
     # Predictions
     q_idx_return, q_codes_return, results, timings = predict_mercs(
-        dataset, clf, q_idx=qry_idx, **predict_config
+        dataset, clf, q_idx=qry_idx, n_jobs=n_jobs, **predict_config
     )
 
     # Post-process outputs
@@ -115,7 +118,10 @@ def main(config_fname, q_idx):
 
 
 # Actions
-def predict_mercs(dataset, classifier, q_idx=None, **predict_config):
+def predict_mercs(
+    dataset, classifier, q_idx=None, n_jobs=1, verbose=1, **predict_config
+):
+
     result = []
     f1_micro = []
     f1_macro = []
@@ -147,36 +153,27 @@ def predict_mercs(dataset, classifier, q_idx=None, **predict_config):
             q_idx_return.append(query_idx)
             q_codes_return.append(q_code)
 
-            # Preprocessing
-            test = df.values
-            test = test.astype(float)
-            target_ids = get_att(q_code, kind="targ").tolist()
-            y_true = test[:, target_ids].copy()  # Extract ground truth
-            test[
-                :, target_ids
-            ] = np.nan  # Ensure the answers do never touch the algorithm even
+    if n_jobs > 1:
+        msg = """
+        Inference is being parallellized using Joblib. Number of jobs = {}
+        """.format(
+            n_jobs
+        )
+        warnings.warn(msg)
+        q_outputs = Parallel(n_jobs=n_jobs, verbose=verbose)(
+            delayed(predict_single_query)(classifier, df, q_code, predict_config)
+            for q_code in q_codes_return
+        )
+    else:
+        q_outputs = [
+            predict_single_query(classifier, df, q_code, predict_config)
+            for q_code in q_codes_return
+        ]
 
-            # Predictions and evaluation
-            y_pred = classifier.predict(test, q_code=q_code, **predict_config)
-
-            q_inf_time = classifier.model_data["inf_time"]
-
-            msg = """
-            q_idx:  {}
-            total_time = {}
-            ratios predict-dask-compute     {}
-            """.format(query_idx, q_inf_time,classifier.model_data["ratios"]
-            )
-            print(msg)
-
-            q_f1_micro, q_f1_macro = (
-                f1_score(y_true, y_pred, average="micro"),
-                f1_score(y_true, y_pred, average="macro"),
-            )
-
-            inf_time.append(q_inf_time)
-            f1_micro.append(q_f1_micro)
-            f1_macro.append(q_f1_macro)
+    for q_inf_time, q_f1_micro, q_f1_macro in q_outputs:
+        inf_time.append(q_inf_time)
+        f1_micro.append(q_f1_micro)
+        f1_macro.append(q_f1_macro)
 
     q_codes_return = np.vstack(q_codes_return)
     results = dict(f1_micro=f1_micro, f1_macro=f1_macro)
@@ -185,16 +182,37 @@ def predict_mercs(dataset, classifier, q_idx=None, **predict_config):
     return q_idx_return, q_codes_return, results, timings
 
 
+def predict_single_query(classifier, df, q_code, predict_config):
+    # Preprocessing
+    test = df.values
+    test = test.astype(float)
+    target_ids = get_att(q_code, kind="targ").tolist()
+    y_true = test[:, target_ids].copy()  # Extract ground truth
+    test[:, target_ids] = np.nan  # Ensure the answers never enter the algorithm
+
+    # Predictions and evaluation
+    y_pred = classifier.predict(test, q_code=q_code, **predict_config)
+
+    q_inf_time = classifier.model_data["inf_time"]
+
+    print(classifier.model_data)
+
+    q_f1_micro, q_f1_macro = (
+        f1_score(y_true, y_pred, average="micro"),
+        f1_score(y_true, y_pred, average="macro"),
+    )
+
+    return q_inf_time, q_f1_micro, q_f1_macro
+
+
+# IO
 def load_mercs(dataset, keyword="default"):
     suffix = ["mercs", keyword]
-    fn_mod = filename_model(dataset, suffix=suffix)
+    fn_mod = filename_model(dataset, suffix=suffix, extension="lz4")
 
-    with open(fn_mod, "rb") as f:
-        clf = pkl.load(f)
+    clf = load(fn_mod)
+
     return clf
-
-
-# Helpers
 
 
 # CLI

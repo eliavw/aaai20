@@ -58,10 +58,10 @@ def main(config_fname):
     if not os.path.exists(dn_tmp):
         os.makedirs(dn_tmp)
 
-    clf = fit_pxs(dataset, cwd=dn_tmp, **fit_config)
+    clf = fit_pxs(dataset, cwd=dn_tmp, model_keyword=model_keyword[0], **fit_config)
 
     # Save model
-    save_pxs(dataset, clf, keyword=model_keyword)
+    save_pxs(dataset, clf, model_keyword=model_keyword[0])
 
     return
 
@@ -83,9 +83,9 @@ def fit_pxs(dataset, cwd=None, model_keyword="default", **fit_config):
     return clf
 
 
-def save_pxs(dataset, classifier, keyword="default"):
+def save_pxs(dataset, classifier, model_keyword="default"):
 
-    suffix = ["pxs", keyword]
+    suffix = ["pxs", model_keyword]
     fn_mod = filename_model(dataset, suffix=suffix)
 
     with open(fn_mod, "wb") as f:

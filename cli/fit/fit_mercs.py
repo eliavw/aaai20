@@ -8,6 +8,7 @@ from pathlib import Path
 import dill as pkl
 import numpy as np
 import pandas as pd
+from joblib import dump, load
 from sklearn.exceptions import UndefinedMetricWarning
 from sklearn.metrics import f1_score
 
@@ -29,18 +30,21 @@ warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
 
 SCRIPT = Path(__file__).stem
 RANDOM_STATE = 42
+N_JOBS=4
 
 DEFAULT_FIT_CONFIG = dict(
     random_state=RANDOM_STATE,
     classifier_algorithm="DT",
     regressor_algorithm="DT",
-    clf_criterion="gini",
-    rgr_criterion="mse",
+    #clf_criterion="gini",
+    #rgr_criterion="mse",
     selection_algorithm="base",
     nb_targets=1,
     fraction_missing=0.0,
     nb_iterations=1,
     max_depth=8,
+    n_jobs=N_JOBS,
+    verbose=1
 )
 
 DEFAULT_CONFIG = dict(
@@ -67,12 +71,6 @@ def main(config_fname):
     # Make model
     clf = fit_mercs(dataset, **fit_config)
 
-    msg = """
-    dataset: {}
-    nb_models: {}
-    max_depth: {}
-    """.format(dataset, len(clf.m_list), clf.m_list[0].max_depth)
-    print(msg)
 
     # Save model
     save_mercs(dataset, clf, keyword=model_keyword)
@@ -95,7 +93,9 @@ def fit_mercs(dataset, **fit_config):
     # Train
     msg = """
     Fit config = {}
-    """.format(fit_config)
+    """.format(
+        fit_config
+    )
     print(msg)
     clf = Mercs(**fit_config)
     clf.fit(train, nominal_attributes=nominal_ids)
@@ -106,10 +106,9 @@ def fit_mercs(dataset, **fit_config):
 def save_mercs(dataset, classifier, keyword="default"):
 
     suffix = ["mercs", keyword]
-    fn_mod = filename_model(dataset, suffix=suffix)
+    fn_mod = filename_model(dataset, suffix=suffix, extension='lz4')
+    dump(classifier, fn_mod, compress='lz4') 
 
-    with open(fn_mod, "wb") as f:
-        pkl.dump(classifier, f)
     return
 
 

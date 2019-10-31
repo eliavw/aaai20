@@ -29,7 +29,7 @@ python cli.py -c <folder-name OR file-name> -l
 
 #### Remote setup
 
-- isntall conda environment
+- install conda environment
 - install pxs
 - install mercs
 

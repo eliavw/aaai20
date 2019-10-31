@@ -1,9 +1,0 @@
-{
-    "test_fname": "/cw/dtailocal/repos/aaai20/note/experiments/../../data/step-02/nltcs-test-pxs.csv",
-    "out_fname": "/cw/dtailocal/repos/aaai20/note/experiments/out.csv",
-    "model_fname": "/cw/dtailocal/repos/aaai20/note/experiments/../../config/model/nltcs-pxs-default.xdsl",
-    "miss_idx": [],
-    "targ_idx": [
-        0
-    ]
-}
