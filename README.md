@@ -25,6 +25,13 @@ python cli.py -c <folder-name OR file-name> -l
 - `c` flag indicates a config file **or** folder. This folder is expected to be found _inside_ the `./cli/cli-config/` folder.
 - `l` flag indicates we want to execute *locally*
 
+For instance, to execute the MERCS example, run;
+
+```bash
+python cli.py -c demo-config/md8-base-predict.csv
+```
+
+
 ### 2.2 Remote execution
 
 #### Remote setup

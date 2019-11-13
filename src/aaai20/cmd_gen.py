@@ -103,7 +103,16 @@ def _add_queries_in_cartesian_product_way(df_original, queries_list):
 
 # For determination of start_idx
 def all_fnames_in_dir(dname):
-    paths = list(Path(dname).rglob("*.[cC][sS][vV]"))
+    """
+    Recursively scan all files in the directory. Other experiments conducted with the same script will be
+    taken into account as well.
+
+    Take care that glob is not regex. 
+
+    Cf. https://facelessuser.github.io/wcmatch/glob/
+    """
+
+    paths = list(Path(dname).rglob("*-*.[cC][sS][vV]"))
     fnames = [p.stem for p in paths]
     return fnames
 
@@ -121,6 +130,9 @@ def default_start_idx(fs=None, script="run_mercs"):
     
     dname = fs[script]
     fnames = all_fnames_in_dir(dname)
+
+    print(fnames)
+
     idxs = extract_idx_from_fnames(fnames)
     try:
         return max(idxs) +1
